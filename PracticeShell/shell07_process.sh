@@ -1,4 +1,6 @@
 
+##多进程处理
+>chk.log
 
 start=`date "+%S"`
 
@@ -39,5 +41,12 @@ do
 done
 
 wait
+
+for func in func_1 func_2 func_3 
+do
+	iRet=`cat $func.log >> chk.log`
+##	iRet=`rm -rf $func.log`
+done
+
 end=`date "+%S"`
 echo "Time: `expr $end - $start`"

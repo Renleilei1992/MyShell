@@ -1,0 +1,197 @@
+
+# 记录一些常用命令，包括一些管理员命令
+#
+# Record some command we always need to excute!!
+#
+
+
+## pkill -kill -t pts/2			//管理员踢出pts/2的用户	使用who命令可以查看当前登录用户
+
+
+##下载和配置MySql数据库
+##http://dev.mysql.com/downloads/
+##
+##1. 解压和建立软链；
+##2. 配置文件和配置参数；
+##3. 初始化数据库；
+##4. 启动和关闭；
+##5. 建立数据库用户和授权。
+##
+##
+##1. tar xzvf mysql-5.5.28-linux2.6-x86_64.tar.gz        #在/usr/local目录下
+##   ln -s mysql-5.5.28-linux2.6-x86_64 mysql            #创建软链
+##
+##2. mysql会将默认的配置文件保存在mysql/support-files/下。我们把mysql/support-files/my-medium.cnf 复制一份到/etc下然后进行配置。
+##   cp usr/local/mysql/support-files/my-medium.cnf etc/my.cnf
+## 
+##3. gcc 或者 g++ 编译.c .cpp文件时可采用 gcc -o main xxx.c -O3 -g -Wall [O3表示编译器3级优化,-o main表示生成main可执行文件]
+##
+##4. cat /proc/version			##查看当前Linux发行版的内核版本等信息
+##	 Linux version 4.4.0-63-generic (buildd@lcy01-31) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ) #84-Ubuntu SMP Wed Feb 1 17:20:32 UTC 2017
+##
+##5. uname -a  (-r)				##显示当前内核版本
+##	 4.4.0-63-generic
+##
+##6. lsb_release -a				##列出所有版本信息[适用于所有Linux的发行版]
+##
+##7. cat /etc/issue				##可列出系统信息，并可修改欢迎界面
+##
+##8. cat /etc/os-release		##可列出ubuntu的系统信息
+##	 cat /etc/lsb-release		##列出lsb信息
+##
+##9. file /bin/ls				##可列出ls的版本
+##	 /bin/ls: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=eca98eeadafddff44caf37ae3d4b227132861218, stripped
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+##
+##
+##
+
+
+##
+##
+##
+
+
+
+

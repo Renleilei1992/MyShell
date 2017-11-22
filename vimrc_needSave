@@ -100,7 +100,7 @@ func SetComment_sh()
     call setline(7, "#   创 建 者：Renleilei (renleilei@foxmail.com)")  
     call setline(8, "#   创建日期：".strftime("%Y年%m月%d日"))   
     call setline(9, "#   描    述：")   
-    call setline(10, "#  版    本: Version 1.00")  
+    call setline(10, "#   版    本: Version 1.00")  
     call setline(11, "#================================================================")  
     call setline(12, "")  
     call setline(13, "")  
@@ -134,7 +134,7 @@ function TitleDet()
         call SetComment_sh()  
   
     elseif &filetype == 'sh'   
-        call setline(1,"#!/system/bin/sh")   
+        call setline(1,"#!/bin/bash")   
         call setline(2,"")  
         call SetComment_sh()
 	else

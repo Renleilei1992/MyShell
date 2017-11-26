@@ -38,5 +38,5 @@ setEnv()
 TimeLog()
 {
 	iTime=`date +%Y%m%d-%H:%M:%S`
-    echo 
+    echo "[$iTime]:$1"
 }

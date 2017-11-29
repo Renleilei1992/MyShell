@@ -40,3 +40,18 @@ TimeLog()
 	iTime=`date +%Y%m%d-%H:%M:%S`
     echo "[$iTime]:$1"
 }
+
+#-------------------- 获取文件信息 ------------------------------#
+getFileInfo()
+{
+  for fuluFileName in `ls -lrt $FTP_RECV_DIR/$1/*.flg | awk -F " " '{print $9}'`
+  do
+      ## 获取不带路径的 .flg 标识文件全名
+      tmpFileName=`basename $fullFileName`
+      
+      ## 截断文件全名的 .flg 标识
+      FileName=`echo ${tmpFileName%.*}`
+
+      ## 获取文件名的前4位，即该文件需发往的目的地唯一标识
+      inscorp_id=`echo ${FileName:0:4}`
+}

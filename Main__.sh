@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/bin/zsh
 
 #================================================================
 #   Copyright (C) 2017 Renleilei. All rights reserved.
@@ -27,3 +27,9 @@ trim()
 	echo $1 | sed 's/^ \+//' | sed 's/ \+$//'
 }
 
+main()
+{
+	TimeLog 1 2
+}
+
+main

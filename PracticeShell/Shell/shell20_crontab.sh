@@ -19,10 +19,7 @@ echo $0
 
 cd /home/Renleilei/Repository/MyShell/PracticeShell/Shell
 
-
 echo "#"$date >>/home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename
-
-
 
 ret01=`git add /home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
 ret02=`git commit -m "$date commit" /home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
@@ -34,3 +31,4 @@ ret04=`git push origin master >> /home/Renleilei/Repository/MyShell/PracticeShel
 #Thu May 3 14:03:55 CST 2018
 #Thu May 3 14:05:39 CST 2018
 #Thu May 3 15:13:42 CST 2018
+#Thu May 3 16:30:01 CST 2018

@@ -21,10 +21,12 @@ cd /home/Renleilei/Repository/MyShell/PracticeShell/Shell
 
 echo "#"$date >>/home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename
 
-ret01=`git add /home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
+ret00=`git add /home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
+ret01=`git add /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
 ret02=`git commit -m "$date commit" /home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
-ret03=`git pull origin master >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
-ret04=`git push origin master >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
+ret03=`git commit -m "$date commit" /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
+ret04=`git pull origin master >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
+ret05=`git push origin master >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
 
 #shell18_crontab.sh
 #Thu May 3 14:01:53 CST 2018
@@ -42,3 +44,4 @@ ret04=`git push origin master >> /home/Renleilei/Repository/MyShell/PracticeShel
 #Sat May 5 12:30:01 CST 2018
 #Sat May 5 14:30:01 CST 2018
 #Sat May 5 16:30:01 CST 2018
+#Sat May 5 19:13:40 CST 2018

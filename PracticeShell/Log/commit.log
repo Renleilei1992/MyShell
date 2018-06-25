@@ -1170,3 +1170,12 @@ shell20_crontab.sh
 /home/Renleilei/Repository/MyShell/PracticeShell/Shell/shell20_crontab.sh
 [master 6d347c5] Mon Jun 25 10:30:01 CST 2018 commit
  1 file changed, 1 insertion(+)
+Merge made by the 'recursive' strategy.
+ PracticeShell/Cfg/smallRed.log | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+ create mode 100644 PracticeShell/Cfg/smallRed.log
+Mon Jun 25 14:30:01 CST 2018
+shell20_crontab.sh
+/home/Renleilei/Repository/MyShell/PracticeShell/Shell/shell20_crontab.sh
+[master 99e27d8] Mon Jun 25 14:30:01 CST 2018 commit
+ 1 file changed, 1 insertion(+)

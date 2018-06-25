@@ -1,0 +1,15 @@
+15:30:01 ABC DEF`
+15:30:02 ABC DEF`
+15:30:03 ABC DEF`
+15:30:04 ABC DEF`
+15:30:05 ABC DEF`
+15:30:01 ABC DEF`
+15:32:01 ABC DEF`
+15:33:01 ABC DEF`
+15:35:01 ABC DEF`
+15:30:01 ABC DEF`
+15:30:01 ABC DEF`
+15:40:01 ABC DEF`
+15:40:02 ABC DEF`
+
+at smallRed.log | sort -t: -nk1,1 -nk2,2 -nk3,3 | awk '{t=$1; if(t>="15:30:00" && t<="15:40:00") print}'

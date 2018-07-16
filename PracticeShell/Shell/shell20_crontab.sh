@@ -17,16 +17,19 @@ echo $date
 echo $filename
 echo $0
 
-cd /home/Renleilei/Repository/MyShell/PracticeShell/Shell
+#cd /home/Renleilei/Repository/MyShell/PracticeShell/Shell
+LOCAL_PATH=~/Repository/MyShell/PracticeShell/Shell
+LOCAL_LOG_PATH=~/Repository/MyShell/PracticeShell/Log
+cd $LOCAL_PATH
 
-echo "#"$date >>/home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename
+echo "#"$date >>$LOCAL_PATH/$filename
 
-ret00=`git add /home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
-ret01=`git add /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
-ret02=`git commit -m "$date commit" /home/Renleilei/Repository/MyShell/PracticeShell/Shell/$filename >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
-ret03=`git commit -m "$date commit" /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
-ret04=`git pull origin master >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
-ret05=`git push origin master >> /home/Renleilei/Repository/MyShell/PracticeShell/Log/commit.log`
+ret00=`git add $LOCAL_PATH/$filename >> $LOCAL_PATH/commit.log`
+ret01=`git add $LOCAL_LOG_PATH/commit.log`
+ret02=`git commit -m "$date commit" $LOCAL_PATH/$filename >> $LOCAL_LOG_PATH/commit.log`
+ret03=`git commit -m "$date commit" $LOCAL_LOG_PATH/commit.log`
+ret04=`git pull origin master >> $LOCAL_LOG_PATH/commit.log`
+ret05=`git push origin master >> $LOCAL_LOG_PATH/commit.log`
 
 #shell18_crontab.sh
 #Thu May 3 14:01:53 CST 2018
@@ -247,3 +250,4 @@ ret05=`git push origin master >> /home/Renleilei/Repository/MyShell/PracticeShel
 #Tue Jul 3 14:30:01 CST 2018
 #Wed Jul 4 10:30:01 CST 2018
 #Wed Jul 4 14:30:01 CST 2018
+#Mon Jul 16 16:41:29 CST 2018

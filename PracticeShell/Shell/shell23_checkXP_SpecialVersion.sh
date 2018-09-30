@@ -54,5 +54,40 @@ do
 }
 done
 
+echo "next step: "
+echo "处理结果文件: "
+`awk -F '"' '{if($8 != ""){print $8" "$16}}' $ResultPath_00 | sort -u >>$ResultPath_03`
+echo "筛选出各个版本的用户: "
+xp_UserNum=`wc -l $ResultPath_03`
+v_7095=`grep '7.0.9.5'  $ResultPath_03 | wc -l`
+v_7097=`grep '7.0.9.7'  $ResultPath_03 | wc -l`
+v_71113=`grep '7.1.1.13'  $ResultPath_03 | wc -l`
+v_7118=`grep '7.1.1.8'  $ResultPath_03 | wc -l`
+v_7119=`grep '7.1.1.9'  $ResultPath_03 | wc -l`
+v_7123=`grep '7.1.2.3'  $ResultPath_03 | wc -l`
+v_7127=`grep '7.1.2.7'  $ResultPath_03 | wc -l`
+v_7128=`grep '7.1.2.8'  $ResultPath_03 | wc -l`
+
+## 获取各版本的用户ID
+`grep '7.0.9.5'  $ResultPath_03 | awk -F ' ' '{print $1}' >>$ResultPath_04`
+`grep '7.0.9.7'  $ResultPath_03 | awk -F ' ' '{print $1}' >>$ResultPath_04`
+`grep '7.1.1.13' $ResultPath_03 | awk -F ' ' '{print $1}' >>$ResultPath_04`
+`grep '7.1.1.8'  $ResultPath_03 | awk -F ' ' '{print $1}' >>$ResultPath_04`
+`grep '7.1.1.9'  $ResultPath_03 | awk -F ' ' '{print $1}' >>$ResultPath_04`
+`grep '7.1.2.3'  $ResultPath_03 | awk -F ' ' '{print $1}' >>$ResultPath_04`
+`grep '7.1.2.7'  $ResultPath_03 | awk -F ' ' '{print $1}' >>$ResultPath_04`
+`grep '7.1.2.8'  $ResultPath_03 | awk -F ' ' '{print $1}' >>$ResultPath_04`
+
+## 输出结果
+echo "xp   系统登录用户数为: "$xp_UserNum
+echo "7.0.9.5  版本用户数为: $v_7095"
+echo "7.0.9.7  版本用户数为: $v_7097"
+echo "7.1.1.13 版本用户数为: $v_71113"
+echo "7.1.1.8  版本用户数为: $v_7118"
+echo "7.1.1.9  版本用户数为: $v_7119"
+echo "7.1.2.3  版本用户数为: $v_7123"
+echo "7.1.2.7  版本用户数为: $v_7127"
+echo "7.1.2.8  版本用户数为: $v_7128"
+
 echo "--------筛选结束------------"
 

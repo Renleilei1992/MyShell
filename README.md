@@ -1,5 +1,5 @@
 # MyShell
-It's all about my Shell learning and config. A Linux Server Administrator should Know
+It's all about my Shell learning and config. A Linux Server Administrator should Know :)
 
 
 ### 运算符

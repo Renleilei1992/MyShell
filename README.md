@@ -2,6 +2,144 @@
 It's all about my Shell learning and config. A Linux Server Administrator should Know :) :)
 
 
+
+
+---
+#### Linux 或 类Unix通用命令
+-   
+---
+#### vi 编辑器的一些基本操作
+- 使用场景: 将过滤后的日志输出至文件中可以方便查看和查找关键字
+- 编辑器内命令非常多，常用的整理如下，如果需要更多，可以参考此链接 [VIM命令总结](https://www.cnblogs.com/yangjig/p/6014198.html)
+- vi & vim & view 将文件打开
+    ```
+    vi 2019_0123_64006A85FD0E_all.log
+    vim 2019_0123_64006A85FD0E_all.log      // vi 与 vim 打开文件其实一致，部分老的设备没有安装vim
+    view 2019_0123_64006A85FD0E_all.log     // view方式打开文件是只读模式,如果在编辑后需要保存可以使用 :w! 强制保存
+    ```
+- 进入文件之后有4种模式，一般常用2种：1，正常模式；2，插入模式；打开文件之后默认进入 1-正常模式，此外，无论处于什么模式，均可以通过 <Esc> 键进入正常模式
+- 正常模式:
+    ```
+    ### 正常模式下可以进行查找、替换、设置格式、行号、跳转等一系列不需要内容插入的操作，例如：
+    
+    0                               // 跳转至当前行的首字符
+    $                               // 跳转至当前行的末尾字符
+    x                               // 删除光标选择的字符
+    r                               // 替换光标选择的字符
+    u                               // 回退上一个操作
+    dd                              // 删除光标所在行(其实是剪切)
+    yy                              // 复制光标所在行
+    p                               // 将剪贴板上的内容粘贴在光标所在行的下一行
+    ?stringA                        // 向上查询 stringA 关键字  n可以向上继续查询，N向下查询
+    /stringA                        // 向下查询 stringA 关键字  n可以向下继续查询, N向上查询
+    /int\>                          // 向下查询以 int关键字结尾的匹配项
+    /\<int\>                        // 向下查询匹配 int 关键字的字符串，全字匹配
+    :set ignorecase                 // 查找时忽略大小写
+    :set noignorecase               // 查找时取消忽略大小写
+    :set nu                         // 设置文件显示行号
+    :set nonu                       // 设置文件取消显示行号
+    :1                              // 跳转至文件的第一行(数字可以任意填写,会跳转至指定行)
+    :%s /stringA/stringB/g          // 将文件中的 stringA 字符串全部替换为 stringB 字符串
+    :16,78 /stringA/stringB/g       // 将文件中的 16-78 行区间内的 stringA 字符串全部替换为 stringB 字符串
+    :set fileformat=unix            // 设置文件格式
+    :q!                             // 放弃当前文件的编辑并退出该文档
+    :wq!                            // 保存当前文件的编辑内容并退出该文档
+    :w                              // 保存当前文件的编辑内容
+    
+    ### 正常模式下还可以进行组合键操作，用以翻页、跳转等，例如:
+    
+    shift + g                       // 跳转至文件末尾
+    ctrl + f                        // 向下翻页
+    ctrl + d                        // 向下翻
+    ctrl + b                        // 向上翻
+    ctrl + g                        // 查看当前文件行数，光标位置百分比
+    ```
+- 插入模式(编辑模式)
+    ```
+    ### 插入模式进入方法: a 或者 i    (append or insert)
+    
+    在插入模式下就和正常的txt文本编辑器一致，可以输入字符，写代码，写注释等
+    实际应用过程中可以灵活切换 正常模式 与 插入模式, 通过 <ESC> 按钮和 i 按钮进行切换即可
+    ```
+---
+#### Linux 或者 类Unix系统的常用命令
+- [菜鸟教程](http://www.runoob.com/linux/linux-shell.html)   // 非常实用的Linux教程，Shell教程
+- [快速学习Bash-Vamei](https://www.cnblogs.com/vamei/p/8151169.html)  // 受益匪浅的博客
+- 实用命令
+    ```
+    echo xxx                        // 可以打印出xxx 或者 echo $A 打印出A变量的内容
+    echo $?                         // 可以打印出上一个命令执行是否成功,如果为0则成功
+    touch xxx.cpp                   // 可以创建一个xxx.cpp空文件 (touch命令可以用来修改文件的时间 -d)
+    man                             // 可以查看手册中关于某个函数或者命令的解释,标准手册,可以查看 man man
+    cat filename.log                // 可以将文件的内容全部打印在屏幕中
+    nl xxx.cpp                      // 可以打印出xxx.cpp并且附带行号
+    more filename.log               // 可以将文件的部分内容打印在屏幕上，使用d下翻b上翻q结束
+    tail -n filename.log            // 可以查看文件的末尾n行内容(或者使用tail -n 5 x.log)
+    head -n filename.log            // 可以查看文件的首部n行内容
+    expr 1 + 2                      // 可以计算出 1+2 的值(注意*需要添加\转义符)
+    ps -ef | grep xxxx              // 可以查看正在工作的进程信息，包含进程ID
+    sed 's/stringA/stringB/g' 1.txt // 可以将文件中的A字符串替换成B字符串后显示(但文件里内容未实际替换  >重定向即可)
+    tar -cvf ~/tmp.tar ~/dir1/*.txt // 可以将~/dir1目录下的所有txt文件打包在~目录下的tmp.tar包中
+    tar -xvf ~/tmp.tar              // 可以将~/tmp.tar解压到当前目录下
+    tar zxvf ~/tmp.tar -C ~/log     // 可以将~/tmp.tar包解压到指定的~/log目录下
+    gzip xxx.tar                    // 可以将xxx.tar压缩为.gz格式(大小会改变)
+    gunzip xxx.tar.gz               // 可以将xxx.tar.gz压缩包解压
+    crontab -e                      // 可以加入定时执行的任务
+    crontab -l                      // 可以查看当前系统的定时执行任务
+    kill 12339                      // 可以杀死进程12339  (可以加入-9参数  kill -9 12339)
+    nohup sh xxx.sh &               // 可以后台执行xxx.sh，输出会重定向到当前目录的nohup.out或者根目录下的.out文件中
+    chmod +x start.sh               // 可以给start.sh文件赋予执行的权限(rwx 4 2 1 = 7)
+    ---
+    script filename.log             // 可以开始记录系统接下来的标准输出信息到文件中(如果要退出，使用 exit 退出)
+    banner hello                    // 可以打印出一个加大版的hello (部分系统需要apt install sysvbanner)
+    wall hello                      // 可以在登录的服务器上公告hello，每个登录的用户都会收到一条这个hello信息
+    diff file_01 file_02            // 可以查看file_01 与 file_02两个文件的区别
+    diff3 file_01 file_02 file_03   // 可以查看3个文件的区别
+    wc -l filename.log              // 查看文件的行数 使用方法: wc -l x.txt 或者 cat x.txt | wc -l
+    who                             // 查看当前登录系统的用户并查看信息
+    vmstat -w                       // 查看当前系统的硬件信息
+    iostat                          // 查看当前系统的io状态，是否有io wait
+    top                             // 查看当前系统的CPU状态以及正在工作的进程
+    lsof -i:端口号                  // 查看某一端口的占用情况
+    netstat -tunlp                  // 查看全部端口的占用情况
+    netstat -tunlp | grep 端口号    // 查看某一端口的占用情况
+    curl ifconfig.me                // 查看Linux服务器的公网IP
+    curl cip.cc                     // 查看Linux服务器的公网IP及运营商信息(more)
+    ```
+- 常用命令
+    ```
+    ### find (可以用来查找文件)
+    find ./ -name "*.txt" -type f -print            // 查找./目录下所有.txt文件并打印在结果区
+    find ./ -name "Main" -type d -print             // 查找./目录下所有名称为Main的的文件夹
+    find 命令还有很多种其他用法，上述两种为经常用到的查找文件或者目录的用法
+    
+    ### grep (可以用来查找关键字)
+    grep keyword xxx.log                            // 在xxx.log中查找keyword关键字，并打印出匹配行的内容
+    grep keyword xxx.log | wc -l                    // 查询出匹配的关键字行数并进行统计行数量
+    cat xxx.log | grep keyword                      // 用途同上, 但是会多一步操作，文件太大不要这么做
+    grep keyword01 xxx.log | grep keyword02         // 查找到keyword01关键字的结果再次查找keyword02关键字
+    grep -n key -A 2 -B 2 xxx.log                   // 查找在xxx.log中匹配key关键字的行，并同时将前2行后2行展示
+    grep key xxx.log | grep -v key01                // 查找在xxx,log中匹配key关键字的行，忽略其中有key01关键字的行
+    grep -i key xxx.log                             //不区分大小写地搜索,默认情况区分大小写
+    grep -w key xxx.log                //只匹配整个单词，而不是字符串的一部分（如匹配‘magic’，而不是‘magical’），
+    grep命令非常强大,并且可以和其他命令组合,使用管道符 | 将结果进行多次过滤
+    
+    ### awk (行处理器，根据每一行内容进行处理后输出)
+    awk -F ':' '{print $2}' xxx.log         // 输出xxx.log每一行以:为分隔符的第2个区域的内容  1:2:3  输出2
+    awk -F ':' '{print "%-30s%-15s\n",$1,$2}'  // 输出第1个域的内容,左对齐30个字符;输出第2个域的内容,左对齐15个字符
+    awk命令还可以执行代码块操作，这里不做展开，上述这个用法最为实用, 使用 | 管道符组成一串复杂的命令
+    
+    ### sed (对行做处理, 替换或者删除)
+    sed '10d' test.log                      // 删除test.log中的第10行
+    sed -i '$a addLine' big.log             // 在big.log的末尾添加一行内容为: addLine
+    sed -i '10 a newLine' big.log           // 在big.log的第10行添加一行内容为:newLine(文件特别大,不使用vim打开编辑)
+    
+    ### > or >> (重定向)
+    > ~/tmp/renleilei/2019_0125.log         // 创建一个新的文件或者清空原有文件后将输出写入该文件
+    >> ~/tmp/renleilei/2019_0125.log        // 创建一个新的文件或者将文件内容追加到原有文件的最后
+    
+    ```
+
 ### 运算符
     -eq     比较两个数是否相等
     -ne     比较两个数是否不等
@@ -42,7 +180,6 @@ It's all about my Shell learning and config. A Linux Server Administrator should
 ### 查看进程及杀死进程:
 - ps -ef | grep ttU110 | wc -l (可以查看ttU110进程目前有多少个)
 - ps -ef | grep ttU110 | grep -V grep | awk -F" " '{print $2}' | xargs kill -9 (循环杀死该名所有进程)
-- 王轩老师的 sha.sh
 ```
 ps -ef | grep $1 | grep -V grep >jincheng.txt
 cat jincheng.txt | while read LINE

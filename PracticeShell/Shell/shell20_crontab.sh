@@ -18,8 +18,8 @@ echo $filename
 echo $0
 
 #cd /home/Renleilei/Repository/MyShell/PracticeShell/Shell
-LOCAL_PATH=~/Repository/MyShell/PracticeShell/Shell
-LOCAL_LOG_PATH=~/Repository/MyShell/PracticeShell/Log
+LOCAL_PATH=~/Repo/MyShell/PracticeShell/Shell
+LOCAL_LOG_PATH=~/Repo/MyShell/PracticeShell/Log
 cd $LOCAL_PATH
 
 echo "#"$date >>$LOCAL_PATH/$filename
@@ -2021,3 +2021,4 @@ ret05=`git push origin master >> $LOCAL_LOG_PATH/commit.log`
 #Sun Apr 4 22:30:02 CST 2021
 #Mon Apr 5 22:30:01 CST 2021
 #Tue Apr 6 22:30:01 CST 2021
+#Tue Apr 6 23:57:08 CST 2021
